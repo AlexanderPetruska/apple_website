@@ -18,18 +18,15 @@ const Footer = () => {
         </div>
         <div className="my-5 h-px w-full bg-neutral-700" />
         <div className="flex flex-col justify-between md:flex-row md:items-center">
-          <p className="text-xs font-semibold text-gray">
+          <p className="text-xs text-gray">
             Copyright @ 2024 Apple Inc. All rights reserved.
           </p>
           <div className="flex">
             {footerLinks.map((link, i) => (
-              <p
-                key={link}
-                className="cursor-pointer text-xs font-semibold text-gray"
-              >
-                {link}{" "}
+              <p key={link} className="cursor-pointer text-xs text-gray">
+                {link}
                 {i !== footerLinks.length - 1 && (
-                  <span className="mx-2"> | </span>
+                  <span className="mx-2">|</span>
                 )}
               </p>
             ))}
