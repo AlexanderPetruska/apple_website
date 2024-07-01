@@ -48,7 +48,7 @@ const Features = () => {
       <div className="screen-max-width">
         <div className="mb-12 w-full">
           <h2 id="features_title" className="section-heading">
-            Explore the full story
+            Explore the full story.
           </h2>
         </div>
         <div className="flex flex-col items-center justify-center overflow-hidden">
@@ -111,9 +111,10 @@ const Features = () => {
                     Titanium has one of the best strength-to-weight ratios of
                     any metal, making these our{" "}
                     <span className="text-white">
-                      lightest Pro models ever.
+                      lightest Pro models ever.{" "}
                     </span>
-                    You'll notice the difference the moment you pick one up.
+                    You&apos;ll notice the difference the moment you pick one
+                    up.
                   </p>
                 </div>
               </div>
