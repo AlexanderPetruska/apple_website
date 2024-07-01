@@ -8,6 +8,16 @@ import { animateWithGsap } from "../utils/animations";
 const HowItWorks = () => {
   const videoRef = useRef();
   useGSAP(() => {
+    gsap.to(".hiw-video", {
+      scrollTrigger: {
+        trigger: ".hiw-video",
+        toggleActions: "play pause play restart ",
+        start: "-10% bottom",
+      },
+      onComplete: () => {
+        videoRef.current.play();
+      },
+    });
     gsap.from("#chip", {
       scrollTrigger: {
         trigger: "#chip",
