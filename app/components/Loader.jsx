@@ -1,3 +1,5 @@
+"use client ";
+
 import { Html } from "@react-three/drei";
 import { RotatingLines } from "react-loader-spinner";
 
