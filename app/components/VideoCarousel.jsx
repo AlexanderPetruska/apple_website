@@ -101,7 +101,7 @@ const VideoCarousel = () => {
       const animUpdate = () => {
         anim.progress(
           videoRef.current[videoId].currentTime /
-            hightlightsSlides[videoId].videoDuration,
+            hightlightsSlides[videoId].videoDuration
         );
       };
 
@@ -113,7 +113,7 @@ const VideoCarousel = () => {
         gsap.ticker.remove(animUpdate);
       }
     }
-  }, [videoId, startPlay]);
+  }, [videoId, isPlaying, startPlay]);
 
   useEffect(() => {
     if (loadedData.length > 3) {

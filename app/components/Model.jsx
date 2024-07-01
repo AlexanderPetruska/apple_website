@@ -32,8 +32,6 @@ const Model = () => {
   const small = useRef(new THREE.Group());
   const large = useRef(new THREE.Group());
 
-  const [first, setFirst] = useState(true);
-
   useGSAP(() => {
     gsap.to("#heading", { y: 0, opacity: 1 });
   }, []);
@@ -46,7 +44,7 @@ const Model = () => {
         </h1>
 
         <div className="mt-5 flex flex-col items-center">
-          <div className="relative h-[75vh] w-full overflow-hidden md:h-[90vh]">
+          <div className="relative h-[75vh] w-full overflow-hidden md:h-[70vh]">
             <Canvas
               className="size-full"
               style={{
@@ -241,6 +239,7 @@ export function IPhone(props) {
         material[1].color = new THREE.Color(props.item.color[0]);
       }
       material[1].needsUpdate = true;
+      return null; // Add a return statement here
     });
   }, [materials, props.item]);
 
