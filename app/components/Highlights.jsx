@@ -1,24 +1,23 @@
 "use client";
 
-import { useGSAP } from "@gsap/react";
+import { useEffect } from "react";
 import gsap from "gsap";
 import Image from "next/image";
-import React from "react";
 import VideoCarousel from "./VideoCarousel";
 
 const Highlights = () => {
-  useGSAP(() => {
+  useEffect(() => {
     gsap.to("#title", {
       duration: 1,
       opacity: 1,
-      delay: 2,
+      delay: 0.5,
       y: 0,
       ease: "power2.out",
     });
     gsap.to(".link", {
       opacity: 1,
       duration: 1,
-      delay: 2,
+      delay: 0.5,
       y: 0,
       stagger: 0.25,
     });
@@ -31,11 +30,11 @@ const Highlights = () => {
     >
       <div className="screen-max-width">
         <div className="mb-12 w-full items-end justify-between md:flex">
-          <h1 id="title" className="section-heading">
+          <h1 id="title" className="section-heading translate-y-10 opacity-0">
             Get the highlights.
           </h1>
           <div className="flex flex-wrap items-end gap-5">
-            <p className="link">
+            <p className="link translate-y-10 opacity-0">
               Watch the film
               <Image
                 src={"/assets/images/watch.svg"}
@@ -43,9 +42,9 @@ const Highlights = () => {
                 height={20}
                 alt="watch"
                 className="ml-2"
-              ></Image>
+              />
             </p>
-            <p className="link">
+            <p className="link translate-y-10 opacity-0">
               Watch the event
               <Image
                 src={"/assets/images/right.svg"}
@@ -53,11 +52,10 @@ const Highlights = () => {
                 height={10}
                 alt="watch"
                 className="ml-2"
-              ></Image>
+              />
             </p>
           </div>
         </div>
-
         <VideoCarousel />
       </div>
     </section>

@@ -6,7 +6,6 @@ import React, { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   PerspectiveCamera,
-  View,
   Environment,
   Lightformer,
   useGLTF,
@@ -24,13 +23,9 @@ const Model = () => {
     img: "/assets/images/yellow.jpg",
   });
 
-  // camera control for the model view
   const cameraControlSmall = useRef();
-  const cameraControlLarge = useRef();
 
-  // model
   const small = useRef(new THREE.Group());
-  const large = useRef(new THREE.Group());
 
   useGSAP(() => {
     gsap.to("#heading", { y: 0, opacity: 1 });
@@ -55,34 +50,23 @@ const Model = () => {
                 right: 0,
                 overflow: "hidden",
               }}
-              eventSource={document.getElementById("root")}
+              eventSource={
+                typeof document !== "undefined"
+                  ? document.model || undefined
+                  : undefined
+              }
             >
               <ambientLight intensity={0.3} />
               <PerspectiveCamera makeDefault position={[0, 0, 4]} />
               <Lights />
-              if (first)
-              {
-                <ModelView
-                  index={1}
-                  groupRef={small}
-                  gsapType="view1"
-                  controlRef={cameraControlSmall}
-                  item={model}
-                  size={size}
-                />
-              }
-              else
-              {
-                <ModelView
-                  index={2}
-                  groupRef={large}
-                  gsapType="view2"
-                  controlRef={cameraControlLarge}
-                  item={model}
-                  size={size}
-                />
-              }
-              <View.Port />
+              <ModelView
+                index={1}
+                groupRef={small}
+                gsapType="view1"
+                controlRef={cameraControlSmall}
+                item={model}
+                size={size}
+              />
               <OrbitControls
                 makeDefault
                 enablePan={false}
@@ -228,7 +212,6 @@ export function IPhone(props) {
 
   useEffect(() => {
     Object.entries(materials).map((material) => {
-      // these are the material names that can't be changed color
       if (
         material[0] !== "zFdeDaGNRwzccye" &&
         material[0] !== "ujsvqBWRMnqdwPx" &&

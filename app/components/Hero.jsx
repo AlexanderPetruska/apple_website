@@ -7,9 +7,9 @@ import Link from "next/link";
 
 const Hero = () => {
   const [videoSrc, setVideoSrc] = useState(
-    window.innerWidth < 640
+    typeof window !== "undefined" && window.innerWidth < 640
       ? "/assets/videos/smallHero.mp4"
-      : "/assets/videos/hero.mp4",
+      : "/assets/videos/hero.mp4"
   );
 
   const handleVideoSrcSet = () => {
