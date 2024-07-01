@@ -4,6 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import React, { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas } from "@react-three/fiber";
+import Loader from "./Loader";
 import {
   PerspectiveCamera,
   Environment,
@@ -22,10 +23,7 @@ const Model = () => {
     color: ["#8F8A81", "#FFE7B9", "#6F6C64"],
     img: "/assets/images/yellow.jpg",
   });
-
-  const cameraControlSmall = useRef();
-
-  const small = useRef(new THREE.Group());
+  const cameraRef = useRef();
 
   useGSAP(() => {
     gsap.to("#heading", { y: 0, opacity: 1 });
@@ -57,16 +55,13 @@ const Model = () => {
               }
             >
               <ambientLight intensity={0.3} />
-              <PerspectiveCamera makeDefault position={[0, 0, 4]} />
-              <Lights />
-              <ModelView
-                index={1}
-                groupRef={small}
-                gsapType="view1"
-                controlRef={cameraControlSmall}
-                item={model}
-                size={size}
+              <PerspectiveCamera
+                ref={cameraRef}
+                makeDefault
+                position={[0, 0, 4]}
               />
+              <Lights />
+              <ModelView item={model} size={size} />
               <OrbitControls
                 makeDefault
                 enablePan={false}
@@ -104,6 +99,7 @@ const Model = () => {
                     }}
                     onClick={() => {
                       setSize(value);
+                      cameraRef.current.position.set(0, 0, 4);
                     }}
                   >
                     {label}
@@ -138,7 +134,7 @@ function ModelView({
         name={`${index === 1} ? 'small' : 'large`}
         position={[0, 0, 0]}
       >
-        <Suspense fallback={null}>
+        <Suspense fallback={<Loader />}>
           <IPhone
             scale={size === "small" ? [12, 12, 12] : [14, 14, 14]}
             item={item}
