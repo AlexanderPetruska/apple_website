@@ -29,7 +29,7 @@ const HowItWorks = () => {
     });
     gsap.to(".g_fadeIn", {
       scrollTrigger: {
-        trigger: "#chip",
+        trigger: ".g_fadeIn",
         start: "20% bottom",
       },
       opacity: 1,
