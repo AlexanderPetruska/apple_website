@@ -3,7 +3,7 @@ import { footerLinks } from "../constants";
 
 const Footer = () => {
   return (
-    <footer className="p-7 pt-10 sm:px-10 ">
+    <footer className="p-4 sm:px-10 ">
       <div className="screen-max-width">
         <div>
           <p className="text-xs font-semibold text-gray">
