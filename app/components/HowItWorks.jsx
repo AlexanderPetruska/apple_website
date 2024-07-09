@@ -27,15 +27,18 @@ const HowItWorks = () => {
       duration: 2,
       ease: "power2.inOut",
     });
-    gsap.to(".g_fadeIn", {
+    gsap.fromTo(".g_fadeIn", {
       scrollTrigger: {
-        trigger: "#videotrigger",
+        trigger: ".g_fadeIn",
         start: "20% bottom",
       },
-      opacity: 1,
-      y: 0,
+      opacity: 0,
+      y: -100,
+    },{
       duration: 1,
       ease: "power2.inOut",
+      opacity: 1,
+      y: 0,
     });
   }, []);
   return (
@@ -80,7 +83,7 @@ const HowItWorks = () => {
               </video>
             </div>
           </div>
-          <p id="videotrigger" className="mt-3 text-center font-semibold text-gray">
+          <p className="mt-3 text-center font-semibold text-gray">
             Honkai: Star Rail
           </p>
         </div>
