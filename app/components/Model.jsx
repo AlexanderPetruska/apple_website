@@ -99,7 +99,6 @@ const Model = () => {
                     }}
                     onClick={() => {
                       setSize(value);
-                      cameraRef.current.position.set(0, 0, 4);
                     }}
                   >
                     {label}
