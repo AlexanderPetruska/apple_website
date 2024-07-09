@@ -36,7 +36,7 @@ const HowItWorks = () => {
     });
   }, []);
   return (
-    <section className="common-padding">
+    <section className="common-padding py-10">
       <div className="screen-max-width">
         <div id="chip" className="flex-center my-20 w-full">
           <Image
