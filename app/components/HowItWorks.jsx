@@ -28,7 +28,7 @@ const HowItWorks = () => {
       duration: 2,
       ease: "power2.inOut",
     });
-    animateWithGsap(".g_fadeIn", {
+    gsap.to(".g_fadeIn", {
       opacity: 1,
       y: 0,
       duration: 1,
@@ -36,7 +36,7 @@ const HowItWorks = () => {
     });
   }, []);
   return (
-    <section className="common-padding py-10">
+    <section className="common-padding">
       <div className="screen-max-width">
         <div id="chip" className="flex-center my-20 w-full">
           <Image
