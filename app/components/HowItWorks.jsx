@@ -3,6 +3,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
 import React, { useRef } from "react";
+import { animateWithGsap } from '../utils/animations';
 
 const HowItWorks = () => {
   const videoRef = useRef();
@@ -27,15 +28,12 @@ const HowItWorks = () => {
       duration: 2,
       ease: "power2.inOut",
     });
-    gsap.to(".g_fadeIn", {
-      scrollTrigger: {
-        trigger: ".g_fadeIn",
-        start: "20% bottom",
-      },
+       animateWithGsap('.g_fadeIn', {
       opacity: 1,
       y: 0,
       duration: 1,
-      ease: "power2.inOut",
+      ease: 'power2.inOut'
+    })
     });
   }, []);
   return (
